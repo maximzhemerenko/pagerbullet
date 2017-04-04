@@ -3,6 +3,7 @@ package com.robohorse.pagerbullet;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.Px;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.PagerAdapter;
@@ -16,9 +17,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-/**
- * Created by vadim on 15.06.16.
- */
 public class PagerBullet extends FrameLayout {
     private static final String DIGIT_PATTERN = "[^0-9.]";
     private static final int DEFAULT_INDICATOR_OFFSET_VALUE = 20;
@@ -230,5 +228,14 @@ public class PagerBullet extends FrameLayout {
                 imageView.setImageDrawable(drawableActive);
             }
         }
+    }
+
+    public void setIndicatorPadding(@Px int top, @Px int bottom) {
+        indicatorContainer.setPadding(
+                indicatorContainer.getPaddingLeft(),
+                top,
+                indicatorContainer.getPaddingRight(),
+                bottom
+        );
     }
 }
